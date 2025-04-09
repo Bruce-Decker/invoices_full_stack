@@ -96,8 +96,10 @@ The login page where users can authenticate with their credentials.
 The main dashboard showing all invoices after successful login.
 
 ### API Documentation
-![Swagger UI](screenshots/swagger.png)
-The Swagger UI documentation for the API endpoints.
+![Postman API 1](screenshots/API_1`.png)
+![Postman API 2](screenshots/API_2`.png)
+![Postman API 3](screenshots/API_3`.png)
+
 
 ## Running the Application
 
