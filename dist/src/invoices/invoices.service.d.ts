@@ -8,35 +8,35 @@ export declare class InvoicesService {
     getInvoices(userId: number, page?: number, limit?: number): Promise<PaginatedResponse<Invoice>>;
     findAll(userId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         vendorName: string;
         amount: number;
         dueDate: Date;
         description: string | null;
         paid: boolean;
         userId: number;
-        createdAt: Date;
-        updatedAt: Date;
     }[]>;
     findOne(id: number, userId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         vendorName: string;
         amount: number;
         dueDate: Date;
         description: string | null;
         paid: boolean;
         userId: number;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     create(createInvoiceDto: CreateInvoiceDto, userId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         vendorName: string;
         amount: number;
         dueDate: Date;
         description: string | null;
         paid: boolean;
         userId: number;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
 }

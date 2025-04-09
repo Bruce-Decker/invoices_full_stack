@@ -9,24 +9,24 @@ export declare class InvoicesController {
     findAll(userId: number, paginationDto: PaginationDto): Promise<PaginatedResponse<Invoice>>;
     findOne(id: string, userId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         vendorName: string;
         amount: number;
         dueDate: Date;
         description: string | null;
         paid: boolean;
         userId: number;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
     create(createInvoiceDto: CreateInvoiceDto, userId: number): Promise<{
         id: number;
+        createdAt: Date;
+        updatedAt: Date;
         vendorName: string;
         amount: number;
         dueDate: Date;
         description: string | null;
         paid: boolean;
         userId: number;
-        createdAt: Date;
-        updatedAt: Date;
     }>;
 }

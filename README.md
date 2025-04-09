@@ -241,3 +241,21 @@ VITE_API_URL=http://localhost:3000
    - Ensure JWT_SECRET is properly set
    - Check if token is being properly stored
    - Verify credentials match seeded user
+
+## Testing
+
+### End-to-End Tests
+
+To run the end-to-end tests:
+
+```bash
+npm run test:e2e
+```
+
+This will run the test suite that verifies:
+- API health check endpoint
+- Authentication flow
+- Invoice endpoints with pagination
+- Data structure validation
+
+Make sure the database is running and seeded before running the tests.
