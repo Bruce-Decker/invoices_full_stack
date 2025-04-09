@@ -18,7 +18,7 @@ export class InvoicesService {
       this.prisma.invoice.findMany({
         where: { userId },
         skip,
-        take: Number(limit),
+        take: parseInt(limit.toString(), 10),
         orderBy: { createdAt: 'desc' },
       }),
       this.prisma.invoice.count({ where: { userId } }),

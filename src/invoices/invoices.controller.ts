@@ -17,12 +17,13 @@ export class InvoicesController {
 
   @Get()
   async findAll(
+    @GetUser('id') userId: number,
     @Query() paginationDto: PaginationDto,
   ): Promise<PaginatedResponse<Invoice>> {
     return this.invoicesService.getInvoices(
-      1, // TODO: Get actual user ID from request
-      Number(paginationDto.page),
-      Number(paginationDto.limit),
+      userId,
+      paginationDto.page,
+      paginationDto.limit,
     );
   }
 

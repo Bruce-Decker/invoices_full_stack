@@ -24,8 +24,8 @@ let InvoicesController = class InvoicesController {
     constructor(invoicesService) {
         this.invoicesService = invoicesService;
     }
-    async findAll(paginationDto) {
-        return this.invoicesService.getInvoices(1, Number(paginationDto.page), Number(paginationDto.limit));
+    async findAll(userId, paginationDto) {
+        return this.invoicesService.getInvoices(userId, paginationDto.page, paginationDto.limit);
     }
     findOne(id, userId) {
         return this.invoicesService.findOne(+id, userId);
@@ -37,9 +37,10 @@ let InvoicesController = class InvoicesController {
 exports.InvoicesController = InvoicesController;
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, common_1.Query)()),
+    __param(0, (0, get_user_decorator_1.GetUser)('id')),
+    __param(1, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
+    __metadata("design:paramtypes", [Number, pagination_dto_1.PaginationDto]),
     __metadata("design:returntype", Promise)
 ], InvoicesController.prototype, "findAll", null);
 __decorate([

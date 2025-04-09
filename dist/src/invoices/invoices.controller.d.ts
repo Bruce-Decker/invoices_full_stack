@@ -6,7 +6,7 @@ import { Invoice } from '@prisma/client';
 export declare class InvoicesController {
     private readonly invoicesService;
     constructor(invoicesService: InvoicesService);
-    findAll(paginationDto: PaginationDto): Promise<PaginatedResponse<Invoice>>;
+    findAll(userId: number, paginationDto: PaginationDto): Promise<PaginatedResponse<Invoice>>;
     findOne(id: string, userId: number): Promise<{
         id: number;
         vendorName: string;
