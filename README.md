@@ -29,10 +29,10 @@ docker compose up -d
 ### 2. Backend Setup
 
 ```bash
-# Option 1: Run all setup commands at once
+
 npm install && npx prisma generate && npx prisma migrate deploy && node prisma/seed.js
 
-# Option 2: Run commands individually
+
 # Install dependencies
 npm install
 
@@ -69,7 +69,7 @@ The frontend will be available at http://localhost:5174
 ## Using the Application
 
 ### Login
-1. Open http://localhost:5174 in your browser
+1. Open http://localhost:5173 in your browser
 2. Use the following test credentials:
    ```json
    {

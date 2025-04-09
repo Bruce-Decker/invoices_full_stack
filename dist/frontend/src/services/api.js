@@ -26,9 +26,9 @@ const login = async (email, password) => {
     }
 };
 exports.login = login;
-const getInvoices = async () => {
+const getInvoices = async (page = 1, limit = 10) => {
     try {
-        const response = await api.get('/invoices');
+        const response = await api.get(`/invoices?page=${page}&limit=${limit}`);
         return response.data;
     }
     catch (error) {

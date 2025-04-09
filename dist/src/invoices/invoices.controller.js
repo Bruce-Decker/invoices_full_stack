@@ -18,13 +18,14 @@ const invoices_service_1 = require("./invoices.service");
 const create_invoice_dto_1 = require("./dto/create-invoice.dto");
 const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 const get_user_decorator_1 = require("../auth/decorators/get-user.decorator");
+const pagination_dto_1 = require("../common/dto/pagination.dto");
 const swagger_1 = require("@nestjs/swagger");
 let InvoicesController = class InvoicesController {
     constructor(invoicesService) {
         this.invoicesService = invoicesService;
     }
-    findAll(userId) {
-        return this.invoicesService.findAll(userId);
+    async findAll(paginationDto) {
+        return this.invoicesService.getInvoices(1, Number(paginationDto.page), Number(paginationDto.limit));
     }
     findOne(id, userId) {
         return this.invoicesService.findOne(+id, userId);
@@ -36,10 +37,10 @@ let InvoicesController = class InvoicesController {
 exports.InvoicesController = InvoicesController;
 __decorate([
     (0, common_1.Get)(),
-    __param(0, (0, get_user_decorator_1.GetUser)('id')),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [pagination_dto_1.PaginationDto]),
+    __metadata("design:returntype", Promise)
 ], InvoicesController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Get)(':id'),

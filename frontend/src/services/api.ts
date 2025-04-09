@@ -26,9 +26,9 @@ export const login = async (email: string, password: string) => {
   }
 };
 
-export const getInvoices = async () => {
+export const getInvoices = async (page: number = 1, limit: number = 10) => {
   try {
-    const response = await api.get('/invoices');
+    const response = await api.get(`/invoices?page=${page}&limit=${limit}`);
     return response.data;
   } catch (error) {
     console.error('Get invoices error:', error);

@@ -16,6 +16,27 @@ let InvoicesService = class InvoicesService {
     constructor(prisma) {
         this.prisma = prisma;
     }
+    async getInvoices(userId, page = 1, limit = 10) {
+        const skip = (page - 1) * limit;
+        const [invoices, total] = await Promise.all([
+            this.prisma.invoice.findMany({
+                where: { userId },
+                skip,
+                take: Number(limit),
+                orderBy: { createdAt: 'desc' },
+            }),
+            this.prisma.invoice.count({ where: { userId } }),
+        ]);
+        return {
+            data: invoices,
+            meta: {
+                total,
+                page,
+                limit,
+                totalPages: Math.ceil(total / limit),
+            },
+        };
+    }
     async findAll(userId) {
         return this.prisma.invoice.findMany({
             where: { userId },
