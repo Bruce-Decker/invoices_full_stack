@@ -244,6 +244,25 @@ VITE_API_URL=http://localhost:3000
 
 ## Testing
 
+### Setup for Testing
+
+Before running tests, make sure to install all dependencies and set up the test environment:
+
+```bash
+# Install dependencies
+npm install
+
+# Install test dependencies
+npm install --save-dev @types/supertest
+
+# Start the database
+docker compose up -d
+
+# Run migrations and seed the database
+npx prisma migrate deploy
+node prisma/seed.js
+```
+
 ### End-to-End Tests
 
 To run the end-to-end tests:
